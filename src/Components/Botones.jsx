@@ -1,14 +1,14 @@
 export default function Botones(){
     return (
-        <div id="div-botones">
+        <div className='botones-contenedor'>
         
-            <button onclick="reiniciarMarcadores()">REINICIAR MARCADORES</button>
+            <button className='boton-reiniciar'>REINICIAR MARCADORES</button>
         
-            <button onclick="cambiarNombre()">CAMBIAR NOMBRE</button>
+            <button className='boton-cambiar-nombre'>CAMBIAR NOMBRE</button>
 
-            <button onclick="musicaNo()">MUSICA NO</button>
+            <button className='boton-musica-no'>MUSICA NO</button>
 
-            <button onclick="musicaSi()">MUSICA SI</button>
+            <button className='boton-musica-si'>MUSICA SI</button>
 
         </div>
     );

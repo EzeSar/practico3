@@ -1,12 +1,12 @@
 export default function Form(){
     return (
-        <div id="div-nombre">
+        <div className='form-contenedor'>
 
             <p>Ingresá tu NOMBRE y hacé click en ENVIAR.</p>
 
-            <label>Tu nombre : <input/> type="text" id="nombre"</label>
+            <label>Tu nombre : <input type='text' className='form-input'/></label>
 
-            <button onclick="agregarNombre()">ENVIAR</button>
+            <button className='form-boton'>ENVIAR</button>
         </div>
     );
 }

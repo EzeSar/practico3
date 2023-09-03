@@ -1,10 +1,10 @@
 export default function Intro(){
     return(
-        <div id="div-a-jugar">
+        <div className='intro-contenedor'>
 
             <p>GANALE A LA COMPU !</p>
         
-            <button onclick="aJugar()">A JUGAR !</button>
+            <button className='intro-boton'>A JUGAR !</button>
         </div>
     );
 }

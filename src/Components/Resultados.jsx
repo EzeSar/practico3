@@ -1,12 +1,12 @@
 export default function Resultados(){
     return(
-        <div id="div-resultados">
+        <div className='resultados-contenedor'>
         
-            <p id="resultado-ronda"></p>
+            <p className='resultados-ronda'></p>
         
-            <p id="resultado-final">( gana quien sume 3 victorias )</p>
+            <p className='resultados-final'>( gana quien sume 3 victorias )</p>
             
-            <button onclick="siguiente()">SIGUIENTE</button>
+            <button className='resultados-boton-siguiente'>SIGUIENTE</button>
                 
         </div>
     );

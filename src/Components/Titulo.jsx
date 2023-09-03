@@ -1,5 +1,7 @@
 export default function Titulo(){
     return (
-        <h1>Piedra , papel o tijera ?</h1>
+        <div className='titulo-contenedor'>
+            <h1>Piedra , papel o tijera ?</h1>
+        </div>
     );
 }
