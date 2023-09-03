@@ -1,11 +1,12 @@
-import Titulo from './Components/Titulo';
+
 import './App.css';
-import Intro from './Components/Intro';
-import Form from './Components/Form';
-import Jugada from './Components/Jugada';
-import Resultados from './Components/Resultados';
-import Marcadores from './Components/Marcadores';
-import Botones from './Components/Botones';
+import Titulo from './components/Titulo';
+import Intro from './components/Intro';
+import Form from './components/Form';
+import Jugada from './components/Jugada';
+import Resultados from './components/Resultados';
+import Marcadores from './components/Marcadores';
+import Botones from './components/Botones';
 
 function App() {
   return (
