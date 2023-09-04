@@ -1,14 +1,13 @@
+import Boton from "./Boton";
+
 export default function Botones(){
     return (
         <div className='botones-contenedor'>
-        
-            <button className='boton-reiniciar'>REINICIAR MARCADORES</button>
-        
-            <button className='boton-cambiar-nombre'>CAMBIAR NOMBRE</button>
-
-            <button className='boton-musica-no'>MUSICA NO</button>
-
-            <button className='boton-musica-si'>MUSICA SI</button>
+            
+            <Boton value='REINICIAR MARCADORES' />
+            <Boton value='CAMBIAR NOMBRE' />
+            <Boton value='MUSICA NO' />
+            <Boton value='MUSICA SI' />
 
         </div>
     );

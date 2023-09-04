@@ -1,3 +1,5 @@
+import Boton from "./Boton";
+
 export default function Resultados(){
     return(
         <div className='resultados-contenedor'>
@@ -6,7 +8,7 @@ export default function Resultados(){
         
             <p className='resultados-final'>( gana quien sume 3 victorias )</p>
             
-            <button className='resultados-boton-siguiente'>SIGUIENTE</button>
+            <Boton value='SIGUIENTE' />
                 
         </div>
     );

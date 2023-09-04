@@ -1,10 +1,13 @@
+import Boton from "./Boton";
+
 export default function Intro(){
     return(
         <div className='intro-contenedor'>
 
             <p>GANALE A LA COMPU !</p>
         
-            <button className='intro-boton'>A JUGAR !</button>
+            <Boton value='A JUGAR !' />
+
         </div>
     );
 }

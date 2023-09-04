@@ -1,3 +1,5 @@
+import Boton from "./Boton";
+
 export default function Form(){
     return (
         <div className='form-contenedor'>
@@ -6,7 +8,8 @@ export default function Form(){
 
             <label>Tu nombre : <input type='text' className='form-input'/></label>
 
-            <button className='form-boton'>ENVIAR</button>
+            <Boton value='ENVIAR' />
+
         </div>
     );
 }

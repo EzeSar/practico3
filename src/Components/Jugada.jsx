@@ -1,6 +1,7 @@
 import piedra from '../assets/piedra.png';
 import papel from '../assets/papel.png';
 import tijera from '../assets/tijera.png';
+import Boton from './Boton';
 
 export default function Jugada(){
     return (
@@ -22,7 +23,7 @@ export default function Jugada(){
                 </button>
             </div>
 
-            <button className='jugada-boton'>JUGADA</button>
+            <Boton value='JUGADA' />
         
         </div>
     );
