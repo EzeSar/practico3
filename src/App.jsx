@@ -10,6 +10,7 @@ import BotonesAlPie from './components/BotonesAlPie';
 function App() {
   return (
     <div className="App">
+
       <h1>Piedra , papel o tijera ?</h1>
       <Intro/>
       <Form/>
@@ -17,6 +18,7 @@ function App() {
       <Resultados/>
       <Marcadores/>
       <BotonesAlPie/>
+      
     </div>
   );
 }

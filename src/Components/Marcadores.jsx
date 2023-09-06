@@ -1,6 +1,7 @@
 import usuario from '../assets/usuario.gif';
 import vs from '../assets/vs-letters.webp';
 import compu from '../assets/compu.gif';
+import Avatar from './Avatar';
 
 export default function Marcadores(){
     return (
@@ -8,13 +9,14 @@ export default function Marcadores(){
 
             <p className='marcador-usuario'></p>
         
-            <img src={usuario} alt='usuario' width='120px' height='120px'/>
+            <Avatar imagen={usuario} tamaño={120} />
         
-            <img src={vs} alt='VS' width='120px' height='120px'/>
+            <Avatar imagen={vs} tamaño={120} />
         
-            <img src={compu} alt='computadora' width='120px' height='120px'/>
+            <Avatar imagen={compu} tamaño={120} />
         
             <p className='marcador-compu'></p>
+
         </div>
     );
 }
