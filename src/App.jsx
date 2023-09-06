@@ -1,23 +1,22 @@
 
 import './App.css';
-import Titulo from './components/Titulo';
 import Intro from './components/Intro';
 import Form from './components/Form';
 import Jugada from './components/Jugada';
 import Resultados from './components/Resultados';
 import Marcadores from './components/Marcadores';
-import Botones from './components/Botones';
+import BotonesAlPie from './components/BotonesAlPie';
 
 function App() {
   return (
     <div className="App">
-      <Titulo/>
+      <h1>Piedra , papel o tijera ?</h1>
       <Intro/>
       <Form/>
       <Jugada/>
       <Resultados/>
       <Marcadores/>
-      <Botones/>
+      <BotonesAlPie/>
     </div>
   );
 }

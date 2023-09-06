@@ -1,8 +1,8 @@
 import Boton from "./Boton";
 
-export default function Botones(){
+export default function BotonesAlPie(){
     return (
-        <div className='botones-contenedor'>
+        <div className='botones-al-pie-contenedor'>
             
             <Boton value='REINICIAR MARCADORES' />
             <Boton value='CAMBIAR NOMBRE' />
