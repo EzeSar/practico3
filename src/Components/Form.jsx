@@ -1,14 +1,21 @@
 import Boton from "./Boton";
+import '../styles/Form.css';
 
-export default function Form(){
+export default function Form(props){
+
+    function manejarClick(){
+        let nombre = document.getElementById("user-name").value;
+        props.callback(nombre);
+    }
+
     return (
         <div className='form-contenedor'>
 
             <p>Ingresá tu NOMBRE y hacé click en ENVIAR.</p>
 
-            <label>Tu nombre : <input type='text' className='form-input'/></label>
+            <label>Tu nombre : <input type='text' id="user-name" /></label>
 
-            <Boton value='ENVIAR' />
+            <Boton value='ENVIAR' onClick={manejarClick} />
 
         </div>
     );

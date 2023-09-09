@@ -1,5 +1,6 @@
 
 import './App.css';
+import { useState } from 'react';
 import Intro from './components/Intro';
 import Form from './components/Form';
 import Jugada from './components/Jugada';
@@ -8,15 +9,18 @@ import Marcadores from './components/Marcadores';
 import BotonesAlPie from './components/BotonesAlPie';
 
 function App() {
+
+  let [nombre, setNombre] = useState("");
+  
   return (
     <div className="App">
 
       <h1>Piedra , papel o tijera ?</h1>
       <Intro/>
-      <Form/>
+      <Form callback={(n) => setNombre(n)}/>
       <Jugada/>
       <Resultados/>
-      <Marcadores/>
+      <Marcadores nombre={nombre}/>
       <BotonesAlPie/>
       
     </div>
