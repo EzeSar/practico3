@@ -3,10 +3,17 @@ import '../styles/Form.css';
 
 export default function Form(props){
 
-    function manejarClick(){
-        let nombre = document.getElementById("user-name").value;
-        props.callback(nombre);
+  function manejarClick(){
+
+    let nombre = document.getElementById("user-name").value;
+
+    if(nombre===''){
+      alert('ERROR, INGRESA UN NOMBRE')
+    } else {
+      props.callback(nombre);
     }
+
+  }
 
     return (
         <div className='form-contenedor'>

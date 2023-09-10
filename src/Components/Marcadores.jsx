@@ -10,11 +10,11 @@ export default function Marcadores(props){
         
             <Avatar imagen={usuario} tamaño={120} />
 
-            <p className='marcador-usuario'>{props.nombre}</p>
+            <p className='marcador-usuario'>{props.nombre}: {props.ronda.ganadosUsuario}</p>
         
             <Avatar imagen={vs} tamaño={120} />
         
-            <p className='marcador-compu'>Compu</p>
+            <p className='marcador-compu'>Compu: {props.ronda.ganadosCompu}</p>
         
             <Avatar imagen={compu} tamaño={120} />
 
