@@ -14,11 +14,11 @@ function App() {
   let [nombre, setNombre] = useState('');
   let [jugadaUsuario, setJugadaUsuario] = useState('');
   let [ronda, setRonda] = useState({
-    jugadaUsuario:'',
     jugadaCompu:'',
     resultado:'',
     ganadosUsuario:'0',
-    ganadosCompu:'0'
+    ganadosCompu:'0',
+    resultadoFinal:'gana quien sume 3 victorias'
     });
 
   return (
@@ -29,7 +29,7 @@ function App() {
       <Form callback={(n) => setNombre(n)} />
       <JugadaUsuario callback={(ju) => setJugadaUsuario(ju)} />
       <Jugada jugadaUsuario={jugadaUsuario} nombre={nombre} ronda={ronda} callback={(ronda)=>setRonda(ronda)} />
-      <Resultados ronda={ronda} />
+      <Resultados ronda={ronda} jugadaUsuario={jugadaUsuario} />
       <Marcadores nombre={nombre} ronda={ronda} />
       <BotonesAlPie />
       

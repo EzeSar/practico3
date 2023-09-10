@@ -3,12 +3,13 @@ import Boton from "./Boton";
 export default function Jugada(props){
 		
 	let jugadaUsuario = props.jugadaUsuario;
-	let jugadaCompu = ('');
+	let jugadaCompu = props.ronda.jugadaCompu;
 	let nombre = props.nombre;
-	let resultado = ('');
+	let resultado = props.ronda.resultado;
 	let ronda = props.ronda;
 	let ganadosUsuario = props.ronda.ganadosUsuario;
 	let ganadosCompu = props.ronda.ganadosCompu;
+	let resultadoFinal = props.ronda.resultadoFinal;
 
   function clickJugada(){
     jugadaCompu = (['piedra','papel','tijera'][Math.floor(Math.random() * 2.99)]);
@@ -46,14 +47,20 @@ export default function Jugada(props){
   
       default:
         resultado = ('empataron');
-    }  
+    }
+
+		if(ganadosUsuario === 3){
+			resultadoFinal = (`JUEGO FINALIZADO, GANÓ ${nombre} !`);
+		} else if(ganadosCompu === 3){
+			resultadoFinal = ('JUEGO FINALIZADO, GANÓ LA COMPU !');
+		}
 
 		ronda = {
-			jugadaUsuario:(jugadaUsuario), 
 			jugadaCompu:(jugadaCompu), 
 			resultado:(resultado), 
 			ganadosUsuario:(ganadosUsuario),
-			ganadosCompu:(ganadosCompu)
+			ganadosCompu:(ganadosCompu),
+			resultadoFinal:(resultadoFinal)
 		};
 
 		props.callback(ronda);
