@@ -63,7 +63,7 @@ export default function Jugada(props){
 			resultadoFinal:(resultadoFinal)
 		};
 
-		props.callback(ronda);
+		props.callback(ronda, false);
   }
 
 	return(

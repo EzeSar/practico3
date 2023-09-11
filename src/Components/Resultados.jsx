@@ -5,6 +5,8 @@ export default function Resultados(props){
     function clickSiguiente(){
         if(props.ronda.ganadosUsuario === 3 || props.ronda.ganadosCompu === 3){
             alert('JUEGO FINALIZADO, DEBES REINICIAR');
+        } else {
+            props.callback(true);
         }
     }
 

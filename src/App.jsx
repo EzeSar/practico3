@@ -32,6 +32,13 @@ function App() {
     setMostrarForm(mostrar);
   }
 
+  let [mostrarJugada, setMostrarJugada] = useState(true);
+
+  function manejarRonda(ronda, mostrar){
+    setRonda(ronda);
+    setMostrarJugada(mostrar);
+  }
+
   return (
     <div className='App'>
 
@@ -54,9 +61,15 @@ function App() {
           <div>
             {!mostrarForm &&
             <div>
-              <JugadaUsuario callback={(jU) => setJugadaUsuario(jU)} />
-              <Jugada jugadaUsuario={jugadaUsuario} nombre={nombre} ronda={ronda} callback={(ronda)=>setRonda(ronda)} />
-              <Resultados ronda={ronda} jugadaUsuario={jugadaUsuario} />
+              {mostrarJugada &&
+              <div>
+                <JugadaUsuario callback={(jU) => setJugadaUsuario(jU)} />
+                <Jugada jugadaUsuario={jugadaUsuario} nombre={nombre} ronda={ronda} callback={(ronda, mostrar)=>manejarRonda(ronda, mostrar)} />
+              </div>}
+              <div>
+                {!mostrarJugada &&
+                <Resultados ronda={ronda} jugadaUsuario={jugadaUsuario} callback={(mostrar)=>setMostrarJugada(mostrar)} />}
+              </div>
             </div>}
           </div>
 
