@@ -39,6 +39,17 @@ function App() {
     setMostrarJugada(mostrar);
   }
 
+  function manejarSiguiente(jU, mostrar){
+    setJugadaUsuario(jU);
+    setMostrarJugada(mostrar);
+  }
+
+  function manejarReinicio(jU, ronda, mostrar){
+    setJugadaUsuario(jU);
+    setRonda(ronda);
+    setMostrarJugada(mostrar);
+  }
+
   return (
     <div className='App'>
 
@@ -68,13 +79,13 @@ function App() {
               </div>}
               <div>
                 {!mostrarJugada &&
-                <Resultados ronda={ronda} jugadaUsuario={jugadaUsuario} callback={(mostrar)=>setMostrarJugada(mostrar)} />}
+                <Resultados jugadaUsuario={jugadaUsuario} ronda={ronda} callback={(jU, mostrar)=>manejarSiguiente(jU, mostrar)} />}
               </div>
             </div>}
           </div>
 
           <Marcadores nombre={nombre} ronda={ronda} />
-          <BotonesAlPie />
+          <BotonesAlPie callback={(jU, ronda, mostrar)=>manejarReinicio(jU, ronda, mostrar)} />
 
         </div>}
 
