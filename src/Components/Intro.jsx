@@ -1,13 +1,21 @@
 import Boton from "./Boton";
 
-export default function Intro(){
-    return(
-        <div className='intro-contenedor'>
+export default function Intro(props){
 
-            <p>GANALE A LA COMPU !</p>
+  function clickAjugar(){
+
+    let mostrar = false;
+    props.callback(mostrar);
+    
+  }
+
+  return(
+    <div className='intro-contenedor'>
+
+      <p>GANALE A LA COMPU !</p>
         
-            <Boton value='A JUGAR !' />
+      <Boton value='A JUGAR !' onClick={clickAjugar} />
 
-        </div>
-    );
+    </div>
+  );
 }

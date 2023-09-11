@@ -10,7 +10,7 @@ export default function Form(props){
     if(nombre===''){
       alert('ERROR, INGRESA UN NOMBRE')
     } else {
-      props.callback(nombre);
+      props.callback(nombre, false);
     }
 
   }
