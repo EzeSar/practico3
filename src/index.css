@@ -14,8 +14,9 @@ body{
     background-image: url("./assets/Dado-piedra-papel-o-tijera.gif");
     background-position: center;
     background-size: cover;
+    font-family: monospace;
     font-weight: bold;
-    font-size: large;
+    font-size: 1.5em;
     text-shadow:
     1px 1px 2px black,
     0 0 0.6em blue;

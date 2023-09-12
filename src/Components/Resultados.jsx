@@ -13,7 +13,7 @@ export default function Resultados(props){
     return(
         <div className='resultados-contenedor'>
         
-            <p className='resultados-ronda'>Elegiste {props.jugadaUsuario}, la compu eligió {props.ronda.jugadaCompu}, {props.ronda.resultado}.</p>
+            <p className='resultados-ronda'>Elegiste {props.jugadaUsuario}, la compu eligió {props.ronda.jugadaCompu}, punto para {props.ronda.resultado}.</p>
         
             <p className='resultados-final'>{props.ronda.resultadoFinal}</p>
             

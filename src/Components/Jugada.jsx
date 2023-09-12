@@ -18,41 +18,41 @@ export default function Jugada(props){
     
 			switch(jugadaUsuario+jugadaCompu){
 				case "piedrapapel":
-					resultado = ('ganó la compu');
+					resultado = ('la compu');
 					ganadosCompu++;
 					break;
 					
 				case "piedratijera":
-					resultado = ('ganaste');
+					resultado = ('vos');
 					ganadosUsuario++;
 					break;
 					
 				case "papelpiedra":
-					resultado = ('ganaste');
+					resultado = ('vos');
 					ganadosUsuario++;
 					break;
 		
 				case "papeltijera":
-					resultado = ('ganó la compu');
+					resultado = ('la compu');
 					ganadosCompu++;
 					break;
 		
 				case "tijerapiedra":
-					resultado = ('ganó la compu');
+					resultado = ('la compu');
 					ganadosCompu++;
 					break;
 		
 				case "tijerapapel":
-					resultado = ('ganaste');
+					resultado = ('vos');
 					ganadosUsuario++;
 					break;
 		
 				default:
-					resultado = ('empataron');
+					resultado = ('nadie');
 			}
 	
 			if(ganadosUsuario === 3){
-				resultadoFinal = (`JUEGO FINALIZADO, GANASTE !`);
+				resultadoFinal = ('JUEGO FINALIZADO, GANASTE VOS !');
 			} else if(ganadosCompu === 3){
 				resultadoFinal = ('JUEGO FINALIZADO, GANÓ LA COMPU !');
 			}

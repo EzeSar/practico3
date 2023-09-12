@@ -8,7 +8,6 @@ import Resultados from './components/Resultados';
 import Marcadores from './components/Marcadores';
 import BotonesAlPie from './components/BotonesAlPie';
 import Jugada from './components/Jugada';
-
 function App() {
 
   let [nombre, setNombre] = useState('');
@@ -20,10 +19,14 @@ function App() {
     resultado:'',
     ganadosUsuario:'0',
     ganadosCompu:'0',
-    resultadoFinal:'gana quien sume 3 victorias'
+    resultadoFinal:'(gana quien sume 3 puntos)'
     });
 
   let [mostrarIntro, setMostrarIntro] = useState(true);
+
+  function manejarIntro(mostrar){
+    setMostrarIntro(mostrar);
+  }
 
   let [mostrarForm, setMostrarForm] = useState(true);
 
@@ -53,10 +56,10 @@ function App() {
   return (
     <div className='App'>
 
-      <h1>Piedra , papel o tijera ?</h1>
+      <h1>Piedra , Papel o Tijera ?</h1>
 
       <div>
-        {mostrarIntro && <Intro callback={(mostrar)=>setMostrarIntro(mostrar)} />}
+        {mostrarIntro && <Intro callback={(mostrar)=>manejarIntro(mostrar)} />}
       </div>
 
       <div>
