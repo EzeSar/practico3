@@ -47,10 +47,21 @@ function App() {
     setMostrarJugada(mostrar);
   }
 
-  function manejarReinicio(jU, ronda, mostrar){
-    setJugadaUsuario(jU);
-    setRonda(ronda);
-    setMostrarJugada(mostrar);
+  function manejarBotones(boton){
+    if(boton==='REINICIAR MARCADORES'){
+      setJugadaUsuario('');
+      setRonda({
+        jugadaCompu:'',
+        resultado:'',
+        ganadosUsuario:'0',
+        ganadosCompu:'0',
+        resultadoFinal:'gana quien sume 3 victorias'
+      });
+      setMostrarJugada(true);
+    } else if(boton==='CAMBIAR NOMBRE'){
+      setMostrarForm(true);
+    }
+
   }
 
   return (
@@ -88,7 +99,7 @@ function App() {
           </div>
 
           <Marcadores nombre={nombre} ronda={ronda} />
-          <BotonesAlPie callback={(jU, ronda, mostrar)=>manejarReinicio(jU, ronda, mostrar)} />
+          <BotonesAlPie callback={(boton) => manejarBotones(boton)} />
 
         </div>}
 

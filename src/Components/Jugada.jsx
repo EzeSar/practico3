@@ -5,10 +5,10 @@ export default function Jugada(props){
 	let jugadaUsuario = props.jugadaUsuario;
 	let jugadaCompu = props.ronda.jugadaCompu;
 	let resultado = props.ronda.resultado;
-	let ronda = props.ronda;
 	let ganadosUsuario = props.ronda.ganadosUsuario;
 	let ganadosCompu = props.ronda.ganadosCompu;
 	let resultadoFinal = props.ronda.resultadoFinal;
+	let ronda = props.ronda;
 
   function clickJugada(){
 		if(jugadaUsuario===''){
@@ -48,13 +48,13 @@ export default function Jugada(props){
 					break;
 		
 				default:
-					resultado = ('nadie');
+					resultado = ('ninguno');
 			}
 	
 			if(ganadosUsuario === 3){
-				resultadoFinal = ('JUEGO FINALIZADO, GANASTE VOS !');
+				resultadoFinal = ('JUEGO FINALIZADO, GANASTE VOS. BIEN AHÍ !!!');
 			} else if(ganadosCompu === 3){
-				resultadoFinal = ('JUEGO FINALIZADO, GANÓ LA COMPU !');
+				resultadoFinal = ('JUEGO FINALIZADO, GANÓ LA COMPU. SALE REVANCHA ?');
 			}
 	
 			ronda = {
