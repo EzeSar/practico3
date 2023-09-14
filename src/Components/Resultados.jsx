@@ -1,10 +1,11 @@
 import Boton from "./Boton";
+import '../styles/Resultados.css';
 
 export default function Resultados(props){
 
     function clickSiguiente(){
         if(props.ronda.ganadosUsuario === 3 || props.ronda.ganadosCompu === 3){
-            alert('JUEGO FINALIZADO, DEBES REINICIAR');
+            alert('JUEGO FINALIZADO, TOCÁ REINICIAR MARCADORES');
         } else {
             props.callback('', true);
         }
@@ -13,9 +14,9 @@ export default function Resultados(props){
     return(
         <div className='resultados-contenedor'>
         
-            <p className='resultados-ronda'>Elegiste {props.jugadaUsuario}, la compu eligió {props.ronda.jugadaCompu}, punto para {props.ronda.resultado}.</p>
+            <h3>Elegiste {props.jugadaUsuario}, la compu eligió {props.ronda.jugadaCompu}, punto para {props.ronda.resultado}.</h3>
         
-            <p className='resultados-final'>{props.ronda.resultadoFinal}</p>
+            <h3>{props.ronda.resultadoFinal}</h3>
             
             <Boton value='SIGUIENTE' onClick={clickSiguiente} />
                 

@@ -18,9 +18,9 @@ export default function Form(props){
     return (
         <div className='form-contenedor'>
 
-            <p>Ingresá tu NOMBRE y hacé click en ENVIAR.</p>
+            <h3>Ingresá tu nombre y hacé click en ENVIAR.</h3>
 
-            <label>Tu nombre : <input type='text' id="user-name" /></label>
+            <input type='text' id="user-name" />
 
             <Boton value='ENVIAR' onClick={manejarClick} />
 

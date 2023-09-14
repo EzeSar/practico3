@@ -8,7 +8,10 @@ import Resultados from './components/Resultados';
 import Marcadores from './components/Marcadores';
 import BotonesAlPie from './components/BotonesAlPie';
 import Jugada from './components/Jugada';
+/* 
 import Musica from './components/Musica';
+*/
+
 function App() {
 
   let [nombre, setNombre] = useState('');
@@ -27,7 +30,9 @@ function App() {
 
   function manejarIntro(mostrar){
     setMostrarIntro(mostrar);
+    /* 
     setMusicaPlay(!mostrar);
+    */
   }
 
   let [mostrarForm, setMostrarForm] = useState(true);
@@ -49,7 +54,9 @@ function App() {
     setMostrarJugada(mostrar);
   }
 
+  /*
   let [musicaPlay, setMusicaPlay] = useState(false);
+  */
 
   function manejarBotones(boton){
     if(boton==='REINICIAR MARCADORES'){
@@ -59,7 +66,7 @@ function App() {
         resultado:'',
         ganadosUsuario:'0',
         ganadosCompu:'0',
-        resultadoFinal:'gana quien sume 3 victorias'
+        resultadoFinal:'(gana quien sume 3 puntos)'
       });
       setMostrarJugada(true);
     } else if(boton==='CAMBIAR NOMBRE'){
@@ -71,21 +78,19 @@ function App() {
   return (
     <div className='App'>
 
-      <div>
-        {musicaPlay && <Musica />}
-      </div>
+      {/*
+      <Musica play = {musicaPlay} />
+      */}
 
-      <h1>Piedra , Papel o Tijera ?</h1>
+      <h1 className='h1' >Piedra , Papel o Tijera ?</h1>
 
       <div>
         {mostrarIntro && <Intro callback={(mostrar)=>manejarIntro(mostrar)} />}
       </div>
 
       <div>
-
         {!mostrarIntro && 
         <div>
-
           {mostrarForm &&
           <div>
             <Form callback={(nombre, mostrar) => manejarForm(nombre, mostrar)} />
@@ -103,12 +108,12 @@ function App() {
                 {!mostrarJugada &&
                 <Resultados jugadaUsuario={jugadaUsuario} ronda={ronda} callback={(jU, mostrar)=>manejarSiguiente(jU, mostrar)} />}
               </div>
+
+              <Marcadores nombre={nombre} ronda={ronda} />
+              <BotonesAlPie callback={(boton) => manejarBotones(boton)} />
             </div>}
           </div>
-
-          <Marcadores nombre={nombre} ronda={ronda} />
-          <BotonesAlPie callback={(boton) => manejarBotones(boton)} />
-
+          
         </div>}
 
       </div>

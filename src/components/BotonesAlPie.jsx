@@ -1,4 +1,5 @@
 import Boton from "./Boton";
+import '../styles/BotonesAlPie.css';
 
 export default function BotonesAlPie(props){
 
@@ -19,8 +20,10 @@ export default function BotonesAlPie(props){
             
             <Boton value='REINICIAR MARCADORES' onClick={reiniciarMarcadores} />
             <Boton value='CAMBIAR NOMBRE' onClick={cambiarNombre} />
+            {/* 
             <Boton value='MUSICA NO' />
             <Boton value='MUSICA SI' />
+            */}
 
         </div>
     );

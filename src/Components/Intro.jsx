@@ -1,4 +1,5 @@
 import Boton from "./Boton";
+import '../styles/Intro.css';
 
 export default function Intro(props){
 
@@ -12,7 +13,7 @@ export default function Intro(props){
   return(
     <div className='intro-contenedor'>
 
-      <p>GANALE A LA COMPU !</p>
+      <h2>GANALE A LA COMPU !</h2>
         
       <Boton value='A JUGAR !' onClick={clickAjugar} />
 

@@ -1,6 +1,6 @@
-.intro-contenedor {
+.botones-al-pie-contenedor {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }

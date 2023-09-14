@@ -1,3 +1,5 @@
+import '../styles/BotonConImg.css';
+
 export default function BotonConImg({ imagen, tamaño, onClick }){
   return(
     <button className="boton-con-img">
