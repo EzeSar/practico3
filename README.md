@@ -18,363 +18,75 @@ Primero debemos clickear ***a jugar!*** y después ingresar obligatoriamente nue
 
 Las victorias de cada ronda se van sumando y quien logre 3 será quien ***gane el juego***. En caso de empate no se suman puntos y se vuelve a jugar la ronda. Al finalizar el juego se reinicia clickeando ***reiniciar marcadores***. También se puede ***cambiar el nombre*** del usuario.
 
-El juego tiene automáticamente una ***música de fondo***, que puede ser silenciada con el botón ***MUSICA NO***, y activar con el botón ***MUSICA SI***.
-
 ---
 
 ## Documentación
 
-### PARTE 1: Estructura básica HTML y estilos CSS
-
-* `index.html` este es el archivo base para todo el proyecto.
-
-* `styles.css` archivo para dar estilos generales.
-
-### PARTE 2: Obtención del nombre del jugador
-
-* `index.html`: botón para ingresar el ***nombre del usuario***.
-
-```html
-<div class="nombre">
-        <label>Tu nombre: <input type="text" id="nombre"></label>
-        <button id="enviar" onclick="agregarNombre()">Enviar</button>
-    </div>
-```
-
-* `script.js`: archivos para las acciones dinamicas de la app.
-    - `agregarNombre()`: funcion para tomar el nombre del usuario. Contiene ***detección de input vacío***. Está vinculada a un evento de tipo ***onclick*** en el ***input*** con `id="nombre"`.
-
-```javascript
-/* Funcion que toma el nombre */
-function agregarNombre(){
-    /* if que obliga a ingresar el nombre */
-    if(document.getElementById("nombre").value === ""){ 
-        alert("INGRESA TU NOMBRE!");
-    } else {
-        nombreUsuario = document.getElementById("nombre").value;
-    }
-}
-```
-
-### PARTE 3: Selección de la opción del jugador y del oponente (PC)
-
-* `index.html`: a cada ***botón*** (piedra, papel y tijera) se le agrega su correspondiente ***imágen*** `<img src=` y evento ***onclick*** `<button onclick=`.
-
-* `script.js`: se incorporan funciones para ***capturar*** la opción seleccionada por el jugador *(esta función la mejoré en la parte 8)* y para ***generar aleatoriamente*** la opción del oponente (PC).
-
- ```javascript
- /* función que genera aleatoriamente la jugada de la compu */
-function obtenerJugadaCompu(){
-    let jugadas = ["piedra","papel","tijeras"];
-    jugadaCompu = jugadas[Math.floor(Math.random() * 2.9)];
-}
-
-/* las 3 funciones para las jugadas del usuario */
-function elijePiedra(){
-    jugadaUsuario = "piedra";
-}
-
-function elijePapel(){
-    jugadaUsuario = "papel";
-}
-
-function elijeTijera(){
-    jugadaUsuario = "tijera";
-}
- ```
-
-### PARTE 4: Determinación del ganador y actualización del marcador
-
-* Por ***definición general*** se establece que la opción "piedra" le gana a "tijera", "papel" le gana a "piedra", y "tijera" le gana a "papel".
-
-* `index.html`: se agregan los ***marcadores de resultados***.
-
-```html
-<p id="resultado-ronda"></p>
-
-<p id="resultado-final"></p>
-
-<p id="marcador-usuario"></p>
-        
-<p id="marcador-compu"></p>
-```
-
-* `script.js`: se agrega la función `jugada()`, que ejecuta a `determinarGanador(jugadaUsuario,jugadaCompu)` para ***comparar las opciones*** del jugador y del oponente y ***determinar el ganador*** de la ronda.
-    - Se agrega función `actualizarMarcadores()` que ***actualiza los marcadores*** luego de cada ronda.
-
-```javascript
-function jugada(){
-    /* if que detecta nombre vacío */
-    if(document.getElementById("nombre").value === ""){
-        alert("INGRESA TU NOMBRE!!!");
-    } else {
-    obtenerJugadaCompu();
-    determinarGanador(jugadaUsuario,jugadaCompu);
-    actualizarMarcadores();
-    }
-}
-```
-
-### PARTE 5: Control del juego
-
-* Se establece que el juego se juega al mejor de ***5 rondas***.
-* `script.js`: se crea una variable `rondas` para contar las rondas, y una función `finDelJuego()` para verificar si alguno de los jugadores ha alcanzado ***3 victorias***.
-    - Se agrega detección de ***juego finalizado*** a `jugada()`.
-
-```javascript
-function finDelJuego(){
-    if(ganadosUsuario === 3){
-        juegoFinalizado = true;
-    } else if(ganadosCompu === 3){
-        juegoFinalizado = true;
-    }
-}
-
-function jugada(){
-    /* if que detecta nombre vacío */
-    if(document.getElementById("nombre").value === ""){
-        alert("INGRESA TU NOMBRE!!!");
-    /* if que detecta juego finalizado */
-    } else if(juegoFinalizado){
-        alert("JUEGO FINALIZADO, REINICIAR!!!");
-    } else {
-    obtenerJugadaCompu();
-    determinarGanador(jugadaUsuario,jugadaCompu);
-    actualizarMarcadores();
-    finDelJuego();
-    }
-}
-```
-
-### PARTE 6: Anunciar al ganador y reiniciar el juego
-
-* `script.js`: Cuando uno de los jugadores alcanza ***3 victorias*** la función `finDelJuego()` muestra un mensaje ***anunciando al ganador***.
-
-```javascript
-function finDelJuego(){
-    if(ganadosUsuario === 3){
-        juegoFinalizado = true;
-        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ ${nombreUsuario} !!!`;
-    } else if(ganadosCompu === 3){
-        juegoFinalizado = true;
-        document.getElementById("resultado-final").innerHTML = `Finalizó el juego en ${rondas} rondas... GANÓ la compu !!!`;
-    }
-}
-```
-
-* `index.html`: se agrega un botón que llama a la función `reiniciarMarcadores()` para reiniciar el juego y restablecer los marcadores.
-
-```html
-<button onclick="reiniciarMarcadores()">REINICIAR MARCADORES</button>
-```
-
-```javascript
-function reiniciarMarcadores(){
-    juegoFinalizado = false;
-    rondas = 0;
-    ganadosCompu = 0;
-    ganadosUsuario = 0;
-    document.getElementById("resultado-ronda").innerHTML = "";
-    document.getElementById("resultado-final").innerHTML = "";
-    document.getElementById("marcador-usuario").innerHTML = "";
-    document.getElementById("marcador-compu").innerHTML = "";
-}
-```
-
-### PARTE 7: Mejoras y personalización
-
-* Agrego ***más estilos*** CSS:
-    - Imagen gif de fondo al body `background-image: url`
-    - color y sombras al texto `text-shadow:
-    1px 1px 2px black,
-    0 0 1em blue,
-    0 0 0.2em blue;
-    color: white;`
-    - bordes redondeados a los botones `border-radius: 6px;`
-    - imagenes ***gif*** para los marcadores de ***usuario y computadora***.
-
-* ***Retroalimentación visual*** cuando se selecciona una opción:
-    - se agregan funciones para ***mostrar y ocultar*** divs con formularios y botones.
-    - escalado tamaño `button:hover {scale:`
-    - desplazamiento eje y `button:active {transform:`
-    - cambia la sombra `button:active {box-shadow:`
-    - gira la imagen de la opción de jugada al clickearla `.botones>button:active{-webkit-transform: rotate(360deg)`
-    - cambia el borde del botón de la opción de jugada seleccionada `.botones>button:focus{border:`
-
-* ***Transiciones suaves*** para las animaciones de los botones `transition: 300ms;`.
-
-* Agrego una pista de ***música de fondo*** en el `script.js`, que se activa dentro de la función `aJugar()`. También agregué posteriormente un botón ***MUSICA NO*** y uno ***MUSICA SI***. 
-**Esta parte fue la que mas me dio problemas, porque en un principio lo hacía correr directamente ejecutando la función `musica.play()`, pero dejaba de funcionar o directamente no andaba. Despúes probé iniciandola al cargarse el body con `body onload="myFunction()"`, pero también fallaba. Di algunas vueltas al código buscando si era error de sintaxis o de implementación, no sabía. Pero investigando leí que algunos navegadores bloquean esas funciones que cargan automaticamente la ejecución de video o sonido. Así que opté por llamar la función al clickear algún botón. En principio usé el submit del nombre y ya funcionaba perfecto. Después se me ocurrió implementar el formato como quedó finalmente el ingreso al juego y quedó así.**
-
-```javascript
-/* agrego una pista de audio de fondo y sus funciones Si y No */
-const musica = new Audio("assets/Tetris-large.mp3");
-
-function musicaSi(){
-    musica.volume = 0.1;
-    musica.loop = true;
-    musica.play();
-}
-
-function musicaNo(){
-    musica.volume = 0;
-}
-
-function aJugar(){
-    /* se muestra el formulario para el nombre */
-    document.getElementById("div-nombre").style.display = "flex";
-    /* se oculta el primer texto y el botón a jugar! */
-    document.getElementById("div-a-jugar").style.display = "none";
-    /* y se activa la música de fondo */
-    musicaSi();
-}
-```
-
-### PARTE 8: Comentarios explicativos y optimización del código
-
-* Se agrega ***comentarios*** en el código ***JavaScript*** para explicar el propósito de cada función y sección del código. Por ejemplo:
-
-```javascript
-/* función que ejecuta la jugada */
-function jugada(){
-    /* if que detecta juego finalizado */
-    if(juegoFinalizado){
-        alert("JUEGO FINALIZADO, REINICIAR!!!");
-        /* if que detecta nombre vacío */
-    } else if(nombreUsuario === ""){
-        alert("INGRESA TU NOMBRE!!!");
-    /* if que detecta jugada de usuario vacía */
-    } else if(jugadaUsuario === ""){
-        alert("ELEGÍ PIEDRA, PAPEL O TIJERA!!!");
-    } else {
-    obtenerJugadaCompu();
-    determinarGanador(jugadaUsuario,jugadaCompu);
-    actualizarMarcadores();
-    /* borro la jugada del usuario para que no se repita por defecto */
-    jugadaUsuario = "";
-    /* al finalizar la jugada se ejecuta el chequeo de finalización del juego */
-    finDelJuego();
-    }
-}
-```
-
-* Revisión del código para identificar posibles áreas de ***mejora y optimización***. Por ejemplo, para obtener la jugada del usuario usaba 3 funciones separadas y las uní en una con switch case:
-
-```javascript
-/* la funcion para obtener las jugadas del usuario 
-(en un principio lo hacía con 3 funciones separadas) */
-function obtenerJugadaUsuario(a){
-    switch(a){
-        case "piedra":
-            jugadaUsuario = "piedra";
-            break;
-
-        case "papel":
-            jugadaUsuario = "papel";
-            break;
-
-        case "tijera":
-            jugadaUsuario = "tijera";
-            break;
-    }
-}
-```
-
-### PARTE 9: Prueba y depuración
-
-* Se prueba el juego con diferentes combinaciones de ***opciones y omiciones*** para comprobar que funcionan correctamente las ***funciones y alertas de errores***.
-
-* Se realizaron ***correcciones y ajustes*** necesarios para solucionar errores y comportamientos inesperados. Por ejemplo, al obtener el ***nombre de usuario*** le agregué un ***límite*** para evitar texto largo que no se pueda visualizar correctamente:
-
-```javascript
-function agregarNombre(){
-    if(document.getElementById("nombre").value === ""){
-        alert("INGRESA TU NOMBRE!!!");
-        /* le agrego un limite de 20 caracteres al nombre para 
-        evitar texto muy largo que pueda generar errores de visualización */
-    } else if(String(document.getElementById("nombre").value).length > 20){
-        alert("NOMBRE MUY LARGO, MAXIMO 20 CARACTERES!!!");
-    } else { ...
-
-    }
-}
-```
-
-### Detalles y retoques finales
-
-Despúes de comprobar la funcionalidad y todo lo visto anteriormente ( y antes de empezar con el juego extra ), me fueron surgiendo ideas y retoques para mejorar ( a mi gusto obviamente jaja ) la visualización o algún detalle estético... Por ejemplo lo de ocultar botones y otras partes según se vayan necesitando en el juego, también le cambié de flex a grid los marcadores ( después de la clase sobre grid ).
-
-```html
-<div class="marcadores">
-
-        <p id="marcador-usuario"></p>
-        
-        <img id="img-usuario" src="assets/usuario.gif" alt="usuario" width="120px" height="120px">
-        
-        <img id="img-vs" src="assets/vs-letters.webp" alt="VS" width="120px" height="120px">
-        
-        <img id="img-compu" src="assets/compu.gif" alt="computadora" width="120px" height="120px">
-        
-        <p id="marcador-compu"></p>
-    </div>
-```
-
-```css
-.marcadores {
-    display: grid;
-    grid-template-areas: 
-        "us us vs vs co co"
-        "us us vs vs co co"
-        "mu mu mu mc mc mc";
-    justify-items: center;
-}
-
-#img-usuario{
-    grid-area: us;
-}
-
-#img-vs{
-    grid-area: vs;
-}
-
-#img-compu{
-    grid-area: co;
-}
-
-#marcador-usuario{
-    grid-area: mu;
-    font-size: larger;
-}
-
-#marcador-compu{
-    grid-area: mc;
-    font-size: larger;
-}
-```
-
-![print de pantalla](assets/print-de-pantalla.png "print de pantalla")
-
----
-
-### PARTE Estrella: Opcional
-
-#### Pista de carreras
-
-1. Con la base de CarGame crea un juego donde el ```<canvas>``` sea una pista de carrera por donde deba ir nuestro autito y completar 3 vueltas.
-2. Si completa las 3 vueltas sin irse de la pista y sin chocar avanza de nivel.
-3. El juego debe tener al menos 3 niveles. En cada nivel, la pista debe volverse más compleja, con más obstáculos y curvas, y la velocidad del autito debe aumentar a medida que avanzó de nivel.
-4. Tengo 3 vidas para completar todos los niveles para ganar el juego.
-
----
-
-## Construido con 🛠️
-
-* [Visual Studio Code](https://code.visualstudio.com "code.visualstudio.com")
-* [GitHub](https://github.com "github.com")
-* [GitHub desktop](https://desktop.github.com "desktop.github.com")
-* [Html5](https://html.spec.whatwg.org/multipage/ "html.spec.whatwg.org")
-* [CSS](https://www.w3.org/Style/CSS/ "www.w3.org/Style/CSS")
-* [Javascript](https://developer.mozilla.org/es/docs/Web/JavaScript "developer.mozilla.org/es/docs/Web/JavaScript")
+### PARTE 1: Configuración inicial
+
+1. Configura un nuevo proyecto React utilizando la herramienta de línea de comandos
+de React npx create-react-app .
+2. Asegúrate de tener las imágenes o archivos necesarios que puedas reutilizar del
+práctico 2 (por ejemplo si usaste imagenes "piedra.png", "papel.png" y "tijera.png"
+ubicarlas en la carpeta correspondiente en tu proyecto react creado).
+
+### PARTE 2: Creación de componentes básicos
+
+1. Crea un componente llamado App que represente la aplicación en su conjunto.
+2. Dentro del componente App, crea subcomponentes para representar la interfaz de
+usuario, los marcadores y los resultados, utiliza JSX.
+3. Utiliza propiedades (props) para pasar información entre componentes.
+
+### PARTE 3: Obtención del nombre del jugador
+
+1. En el componente App, crea un formulario o un componente de entrada de texto
+para obtener el nombre del jugador.
+2. Utiliza el estado (state) de React para capturar el nombre ingresado por el jugador.
+
+### PARTE 4: Selección de la opción del jugador y del oponente (PC)
+
+1. Crea un componente para representar las opciones de "piedra", "papel" y "tijera"
+siempre utilizando JSX.
+2. Utiliza eventos de click (onClick) para capturar la opción seleccionada por el jugador
+y genera aleatoriamente la opción del oponente (PC).
+
+### PARTE 5: Determinación del ganador y actualización del marcador
+
+1. Crea una función en el componente App para determinar el ganador de cada ronda y
+actualizar los marcadores.
+2. Utiliza el estado (state) de React para mantener el marcador del jugador y del PC.
+
+### PARTE 6: Control del juego y finalización
+
+1. Implementa una lógica para controlar cuántas rondas se jugarán (al mejor de 5
+intentos).
+2. Utiliza el estado (state) de React para contar los intentos y verificar cuándo finaliza el
+juego.
+
+### PARTE 7: Anunciar al ganador y reiniciar el juego
+
+1. Cuando finalice el juego, muestra un mensaje anunciando al ganador.
+2. Proporciona un botón para reiniciar el juego y restablecer los marcadores y el
+estado.
+
+### PARTE 8: Estilos CSS con Styled Components
+
+1. Utiliza la librería Styled Components para aplicar estilos CSS a tus componentes de
+manera más organizada.
+2. Agregar estilos a tus componentes para mejorar la presentación visual del juego.
+
+### PARTE 9: Comentarios explicativos y organización del código
+
+1. Agrega comentarios en tu código React para explicar el propósito de cada
+componente y función.
+2. Organiza tu código en componentes reutilizables y estructurados.
+
+### PARTE 10: Documentación y entrega
+
+1. Agrega en el Readme.md una explicación para un usuario típico del juego y detalla
+lo implementado.
+2. Al finalizar todos los ejercicios deberás crear un tag con el nombre de práctico3
+para realizar la entrega del mismo. Fecha de entrega: 16/9 a las 13:00hs
 
 ---
 

@@ -10,7 +10,7 @@ export default function BotonesAlPie(props){
     function cambiarNombre(){
         manejarBotones('CAMBIAR NOMBRE');
     }
-
+    
     function manejarBotones(boton){
       props.callback(boton);
     }
@@ -20,11 +20,7 @@ export default function BotonesAlPie(props){
             
             <Boton value='REINICIAR MARCADORES' onClick={reiniciarMarcadores} />
             <Boton value='CAMBIAR NOMBRE' onClick={cambiarNombre} />
-            {/* 
-            <Boton value='MUSICA NO' />
-            <Boton value='MUSICA SI' />
-            */}
-
+            
         </div>
     );
 }

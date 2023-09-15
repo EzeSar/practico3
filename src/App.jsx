@@ -1,4 +1,3 @@
-
 import './App.css';
 import { useState } from 'react';
 import Intro from './components/Intro';
@@ -8,9 +7,6 @@ import Resultados from './components/Resultados';
 import Marcadores from './components/Marcadores';
 import BotonesAlPie from './components/BotonesAlPie';
 import Jugada from './components/Jugada';
-/* 
-import Musica from './components/Musica';
-*/
 
 function App() {
 
@@ -30,9 +26,6 @@ function App() {
 
   function manejarIntro(mostrar){
     setMostrarIntro(mostrar);
-    /* 
-    setMusicaPlay(!mostrar);
-    */
   }
 
   let [mostrarForm, setMostrarForm] = useState(true);
@@ -54,10 +47,6 @@ function App() {
     setMostrarJugada(mostrar);
   }
 
-  /*
-  let [musicaPlay, setMusicaPlay] = useState(false);
-  */
-
   function manejarBotones(boton){
     if(boton==='REINICIAR MARCADORES'){
       setJugadaUsuario('');
@@ -77,11 +66,7 @@ function App() {
 
   return (
     <div className='App'>
-
-      {/*
-      <Musica play = {musicaPlay} />
-      */}
-
+      
       <h1 className='h1' >Piedra , Papel o Tijera ?</h1>
 
       <div>
