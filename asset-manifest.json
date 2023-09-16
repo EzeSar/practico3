@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/practico3/static/css/main.ada0c0a0.css",
-    "main.js": "/practico3/static/js/main.11562d1d.js",
+    "main.css": "/practico3/static/css/main.88116605.css",
+    "main.js": "/practico3/static/js/main.c3b6593c.js",
     "static/media/Dado-piedra-papel-o-tijera.gif": "/practico3/static/media/Dado-piedra-papel-o-tijera.f7f5305c658ef65710fb.gif",
     "static/media/usuario.gif": "/practico3/static/media/usuario.ce3936aed4e71e51ed45.gif",
     "static/media/vs-letters.webp": "/practico3/static/media/vs-letters.fdc25442d8a08665ba58.webp",
     "static/media/compu.gif": "/practico3/static/media/compu.af0b8f8741e4fa7e675d.gif",
-    "static/media/abstract-gold-glossy-stylish-background-vector.jpg": "/practico3/static/media/abstract-gold-glossy-stylish-background-vector.50c62305c7a1dc11c30c.jpg",
+    "static/media/fondo-dorado.jpg": "/practico3/static/media/fondo-dorado.50c62305c7a1dc11c30c.jpg",
     "static/media/papel.png": "/practico3/static/media/papel.03b1856662eeacae41f1.png",
     "static/media/tijera.png": "/practico3/static/media/tijera.0708a2771bcf4eb663e5.png",
     "static/media/piedra.png": "/practico3/static/media/piedra.76e378e65fd3dee1dc6f.png",
     "index.html": "/practico3/index.html",
-    "main.ada0c0a0.css.map": "/practico3/static/css/main.ada0c0a0.css.map",
-    "main.11562d1d.js.map": "/practico3/static/js/main.11562d1d.js.map"
+    "main.88116605.css.map": "/practico3/static/css/main.88116605.css.map",
+    "main.c3b6593c.js.map": "/practico3/static/js/main.c3b6593c.js.map"
   },
   "entrypoints": [
-    "static/css/main.ada0c0a0.css",
-    "static/js/main.11562d1d.js"
+    "static/css/main.88116605.css",
+    "static/js/main.c3b6593c.js"
   ]
 }
