@@ -1,5 +1,5 @@
-import Boton from "./Boton";
-import '../styles/Resultados.css';
+import { StylDivColumn } from "./StylDivColumn";
+import StyledBoton from "./StyledBoton";
 
 export default function Resultados(props){
 
@@ -12,14 +12,14 @@ export default function Resultados(props){
     }
 
     return(
-        <div className='resultados-contenedor'>
+        <StylDivColumn>
         
             <h3>Elegiste {props.jugadaUsuario}, la compu eligió {props.ronda.jugadaCompu}, punto para {props.ronda.resultado}.</h3>
         
             <h3>{props.ronda.resultadoFinal}</h3>
             
-            <Boton value='SIGUIENTE' onClick={clickSiguiente} />
+            <StyledBoton value='SIGUIENTE' onClick={clickSiguiente} />
                 
-        </div>
+        </StylDivColumn>
     );
 }

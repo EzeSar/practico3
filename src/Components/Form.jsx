@@ -1,5 +1,5 @@
-import Boton from "./Boton";
-import '../styles/Form.css';
+import { StylDivColumn } from "./StylDivColumn";
+import StyledBoton from "./StyledBoton";
 
 export default function Form(props){
 
@@ -16,14 +16,14 @@ export default function Form(props){
   }
 
     return (
-        <div className='form-contenedor'>
+        <StylDivColumn>
 
-            <h3>Ingresá tu nombre y hacé click en ENVIAR.</h3>
+            <h3 css={'margin:10px;'}>Ingresá tu nombre y hacé click en ENVIAR.</h3>
 
             <input type='text' id="user-name" />
 
-            <Boton value='ENVIAR' onClick={manejarClick} />
+            <StyledBoton value='ENVIAR' onClick={manejarClick} />
 
-        </div>
+        </StylDivColumn>
     );
 }

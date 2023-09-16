@@ -1,5 +1,5 @@
-import Boton from "./Boton";
-import '../styles/Intro.css';
+import { StylDivColumn } from "./StylDivColumn";
+import StyledBoton from "./StyledBoton";
 
 export default function Intro(props){
 
@@ -11,12 +11,12 @@ export default function Intro(props){
   }
 
   return(
-    <div className='intro-contenedor'>
+    <StylDivColumn>
 
       <h2>GANALE A LA COMPU !</h2>
         
-      <Boton value='A JUGAR !' onClick={clickAjugar} />
+      <StyledBoton value='A JUGAR !' onClick={clickAjugar} />
 
-    </div>
+    </StylDivColumn>
   );
 }

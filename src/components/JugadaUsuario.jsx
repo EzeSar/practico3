@@ -1,7 +1,7 @@
 import piedra from '../assets/piedra.png';
 import papel from '../assets/papel.png';
 import tijera from '../assets/tijera.png';
-import BotonConImg from './BotonConImg';
+import StylBtnConImg from './StylBtnConImg';
 
 export default function JugadaUsuario(props){
   function piedraClick(){
@@ -22,11 +22,11 @@ export default function JugadaUsuario(props){
 
       <p>Hacé click en una de las 3 opciones y después en JUGADA .</p>
 
-      <BotonConImg imagen={piedra} tamaño={80} onClick={piedraClick} />
+      <StylBtnConImg imagen={piedra} tamaño={100} onClick={piedraClick} />
         
-      <BotonConImg imagen={papel} tamaño={80} onClick={papelClick} />
+      <StylBtnConImg imagen={papel} tamaño={100} onClick={papelClick} />
             
-      <BotonConImg imagen={tijera} tamaño={80} onClick={tijeraClick} />
+      <StylBtnConImg imagen={tijera} tamaño={100} onClick={tijeraClick} />
         
     </div>
   );

@@ -1,4 +1,4 @@
-import Boton from "./Boton";
+import StyledBoton from "./StyledBoton";
 
 export default function Jugada(props){
 		
@@ -71,7 +71,7 @@ export default function Jugada(props){
   }
 
 	return(
-		<Boton value='JUGADA' onClick={clickJugada} />
+		<StyledBoton value='JUGADA' onClick={clickJugada} />
 	);
 
 }
