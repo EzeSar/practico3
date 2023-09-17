@@ -1,5 +1,9 @@
 import StyledBoton from "./StyledBoton";
 
+//este componente visualmente es solo un botón
+//pero dentro contiene todas las acciones que generan la ronda
+//a través de props obtiene todos los datos y luego los devuelve actualizados
+
 export default function Jugada(props){
 		
 	let jugadaUsuario = props.jugadaUsuario;
@@ -70,6 +74,7 @@ export default function Jugada(props){
 
   }
 
+	//el botón igual que otros componentes utiliza el styled
 	return(
 		<StyledBoton value='JUGADA' onClick={clickJugada} />
 	);

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import fondodorado from '../assets/fondo-dorado.jpg';
 
+//este botón estilizado lo uso en casi todos los componenetes
 const StylBtn = styled.button`
   margin: 20px;
   padding: 3px;
@@ -16,6 +17,7 @@ const StylBtn = styled.button`
   border: 3px solid grey;
   border-radius: 6px;
   box-shadow: 0 9px #aaa;
+  //este detalle del & para agregar :hover o :active es diferente al css
   &:hover {
   transform: scale(1.2);
   transition: 300ms;
@@ -25,7 +27,7 @@ const StylBtn = styled.button`
   transform: translateY(4px);
   };
 `
-
+//lo exporto como función para pasarle props tal cual lo hacía sin el styled
 export default function StyledBoton({ onClick, value }) {
   return(
     <StylBtn className='boton' onClick={onClick}>

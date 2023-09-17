@@ -1,6 +1,9 @@
-import { StylDivColumn } from "./StylDivColumn";
+import { StylDivColumn } from "./StyledDivs";
 import StyledBoton from "./StyledBoton";
 
+//este componente podría haberlo descartado porque no tiene utilidad
+//en el tp2 lo usé para poder activar la música de fondo
+//en este tp quité la música por errores pero dejé esta intro igualmente
 export default function Intro(props){
 
   function clickAjugar(){
@@ -10,6 +13,7 @@ export default function Intro(props){
     
   }
 
+ //utilizo styled components para el div y el botón
   return(
     <StylDivColumn>
 

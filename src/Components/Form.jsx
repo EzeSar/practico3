@@ -1,8 +1,10 @@
-import { StylDivColumn } from "./StylDivColumn";
+import { StylDivColumn } from "./StyledDivs";
 import StyledBoton from "./StyledBoton";
 
 export default function Form(props){
 
+  //para el ingreso del nombre de usuario se toma x id
+  //y después se extrae a través de props.callback
   function manejarClick(){
 
     let nombre = document.getElementById("user-name").value;
@@ -15,15 +17,17 @@ export default function Form(props){
 
   }
 
-    return (
-        <StylDivColumn>
+  //acá uso styled component para el div y el botón
+  return (
+    <StylDivColumn>
 
-            <h3 css={'margin:10px;'}>Ingresá tu nombre y hacé click en ENVIAR.</h3>
+      {/*en este h3 usé estilo inline para darle margen inferior */}
+      <h3 css={'margin:10px;'}>Ingresá tu nombre y hacé click en ENVIAR.</h3>
 
-            <input type='text' id="user-name" />
+      <input type='text' id="user-name" />
 
-            <StyledBoton value='ENVIAR' onClick={manejarClick} />
+      <StyledBoton value='ENVIAR' onClick={manejarClick} />
 
-        </StylDivColumn>
-    );
+    </StylDivColumn>
+  );
 }
