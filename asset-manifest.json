@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/practico3/static/css/main.88116605.css",
-    "main.js": "/practico3/static/js/main.c3b6593c.js",
+    "main.js": "/practico3/static/js/main.cbfdecd5.js",
     "static/media/Dado-piedra-papel-o-tijera.gif": "/practico3/static/media/Dado-piedra-papel-o-tijera.f7f5305c658ef65710fb.gif",
     "static/media/usuario.gif": "/practico3/static/media/usuario.ce3936aed4e71e51ed45.gif",
     "static/media/vs-letters.webp": "/practico3/static/media/vs-letters.fdc25442d8a08665ba58.webp",
@@ -12,10 +12,10 @@
     "static/media/piedra.png": "/practico3/static/media/piedra.76e378e65fd3dee1dc6f.png",
     "index.html": "/practico3/index.html",
     "main.88116605.css.map": "/practico3/static/css/main.88116605.css.map",
-    "main.c3b6593c.js.map": "/practico3/static/js/main.c3b6593c.js.map"
+    "main.cbfdecd5.js.map": "/practico3/static/js/main.cbfdecd5.js.map"
   },
   "entrypoints": [
     "static/css/main.88116605.css",
-    "static/js/main.c3b6593c.js"
+    "static/js/main.cbfdecd5.js"
   ]
 }
